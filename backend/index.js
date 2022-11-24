@@ -6,8 +6,20 @@ const mysql = require('mysql2');
 const app = express();
 
 
-//database
+//database setup
+const db = mysql.createConnection({
+	host:'localhost',
+	user:'root',
+	password: '',
+	database: 'inequalitydb',
+	port: 3306
+});
 
+//database connection check
+db.connect(err=>{
+	if (err) {console.log(err, 'dberr');}
+	console.log('database connected...');
+})
 
 
 
