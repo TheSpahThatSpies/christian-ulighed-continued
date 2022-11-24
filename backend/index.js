@@ -45,6 +45,7 @@ app.get('/user',(req,res)=>{
 app.get('/user/:id',(req,res)=>{
 	let getID = req.params.id;
 	let qr = `select * from user where userid = ${getID}`;
+
 	db.query(qr,(err,result)=>{
 		if(err) {console.log(err);}
 		
