@@ -21,7 +21,7 @@ db.connect(err=>{
 	console.log('database connected...');
 })
 
-//hent data
+//hent alle data
 app.get('/user',(req,res)=>{
 	let qr = `select * from user`;
 
@@ -40,6 +40,33 @@ app.get('/user',(req,res)=>{
 		}
 	});
 });
+
+//hent enkelte data
+app.get('/user/:id',(req,res)=>{
+	let getID = req.params.id;
+	let qr = `select * from user where userid = ${getID}`;
+	db.query(qr,(err,result)=>{
+		if(err) {console.log(err);}
+		
+		if(result.length>0)
+		{
+			res.send({
+				message: 'get single data',
+				data:result
+			});
+		}
+		else
+		{
+			res.send({
+				message: 'data not found',
+			});
+		}
+
+	});
+});
+
+
+
 
 app.use(cors());
 app.use(bodyparser.json());
