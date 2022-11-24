@@ -21,7 +21,25 @@ db.connect(err=>{
 	console.log('database connected...');
 })
 
+//hent data
+app.get('/user',(req,res)=>{
+	let qr = `select * from user`;
 
+	db.query(qr,(err,result)=>{
+		if(err)
+		{
+			console.log(err, 'errs');
+		}
+		
+		if(result.length>0)
+		{
+			res.send({
+				message:'all user data',
+				data:result
+			});
+		}
+	});
+});
 
 app.use(cors());
 app.use(bodyparser.json());
