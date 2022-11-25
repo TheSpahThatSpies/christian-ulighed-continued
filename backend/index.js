@@ -110,6 +110,22 @@ app.post('/user',(req,res)=>{
 		});
 	});
 
+	//slet enkel data
+	app.delete('/user/:id', (req,res)=>{
+
+		let getID = req.params.id;
+
+		let qr = `delete from user where userid = '${getID}' `;
+		db.query(qr,(err,result)=>{
+			if(err) {console.log(err);}
+
+			res.send(
+				{
+					message:'data deleted'
+				}
+			)
+		});
+	});
 
 app.use(cors());
 app.use(bodyparser.json());
