@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "secondary-default-text.component.scss"
+    ],
+    "names": [],
+    "file": "secondary-default-text.component.css"
+}

@@ -1,0 +1,5 @@
+.background-gradient {
+  background: -webkit-gradient(linear, left top, left bottom, from(#EFEDE6), to(#767676));
+  background: linear-gradient(180deg, #EFEDE6 0%, #767676 100%);
+}
+/*# sourceMappingURL=footer.component.css.map */

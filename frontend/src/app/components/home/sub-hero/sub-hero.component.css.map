@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACP,gBAAgB,EAAE,oCAAoC;EACtD,MAAM,EAAE,IAAI;CAAE;;AAEd,AAAA,QAAQ,CAAA;EACJ,gBAAgB,EAAE,gIAAgI;CAAE",
+    "sources": [
+        "sub-hero.component.scss"
+    ],
+    "names": [],
+    "file": "sub-hero.component.css"
+}

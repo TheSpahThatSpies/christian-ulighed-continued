@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "text-slider.component.scss"
+    ],
+    "names": [],
+    "file": "text-slider.component.css"
+}

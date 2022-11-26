@@ -1,0 +1,9 @@
+ion-item {
+  --background: 'secondary-fw' !important;
+  --ion-font-family:'Poppins', sans-serif !important;
+}
+
+ion-accordion {
+  background-color: #efede6 !important;
+}
+/*# sourceMappingURL=faq.component.css.map */
