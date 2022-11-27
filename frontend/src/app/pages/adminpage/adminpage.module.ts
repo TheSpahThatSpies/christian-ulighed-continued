@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -11,18 +11,14 @@ import { AdminpagePage } from './adminpage.page';
 import { HeroComponent } from 'src/app/components/admin/hero/hero.component';
 import { NavComponent } from 'src/app/components/main/nav/nav.component';
 import { LightNavComponent } from 'src/app/components/main/light-nav/light-nav.component';
-import { QuoteComponent } from 'src/app/components/about/quote/quote.component';
-import { HowItHelpsComponent } from 'src/app/components/about/how-it-helps/how-it-helps.component';
-import { AboutUsTextboxComponent } from 'src/app/components/about/about-us-textbox/about-us-textbox.component';
-import { InfoWithImageComponent } from 'src/app/components/about/info-with-image/info-with-image.component';
-import { FaqComponent } from 'src/app/components/about/faq/faq.component';
-import { SecondaryFooterComponent } from 'src/app/components/main/secondary-footer/secondary-footer.component';
-
+import { CreateComponent } from 'src/app/components/admin/create/create/create.component';
+import { ReadComponent } from 'src/app/components/admin/read/read/read.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     AdminpagePageRoutingModule
   ],
@@ -30,11 +26,7 @@ import { SecondaryFooterComponent } from 'src/app/components/main/secondary-foot
     HeroComponent,
     NavComponent,
     LightNavComponent,
-    QuoteComponent,
-    HowItHelpsComponent,
-    AboutUsTextboxComponent,
-    InfoWithImageComponent,
-    FaqComponent,
-    SecondaryFooterComponent]
+    CreateComponent,
+    ReadComponent]
 })
 export class AdminpagePageModule {}
