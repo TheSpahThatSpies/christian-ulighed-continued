@@ -23,6 +23,7 @@ db.connect(err=>{
 	console.log('database connected...');
 })
 
+//----------------------USER----------------------
 //hent alle data
 app.get('/user',(req,res)=>{
 	let qr = `select * from user`;
@@ -126,6 +127,108 @@ app.post('/user',(req,res)=>{
 			)
 		});
 	});
+
+//----------------------FACT----------------------
+//hent alle data
+app.get('/fact',(req,res)=>{
+	let qr = `select * from fact`;
+
+	db.query(qr,(err,result)=>{
+		if(err)
+		{
+			console.log(err, 'errs');
+		}
+		
+		if(result.length>0)
+		{
+			res.send({
+				message:'all fact data',
+				data:result
+			});
+		}
+	});
+});
+
+//hent enkelte data
+app.get('/fact/:id',(req,res)=>{
+	let getID = req.params.id;
+	let qr = `select * from fact where factid = ${getID}`;
+
+	db.query(qr,(err,result)=>{
+		if(err) {console.log(err);}
+		
+		if(result.length>0)
+		{
+			res.send({
+				message: 'get single data',
+				data:result
+			});
+		}
+		else
+		{
+			res.send({
+				message: 'data not found',
+			});
+		}
+
+	});
+});
+
+//opret data
+app.post('/fact',(req,res)=>{
+	console.log(req.body,'createdata');
+
+	let factInfo = req.body.factText;
+
+	let qr = `insert into fact(factText)
+			  values('${factInfo}')`;
+			  console.log(qr,'qr')
+			  db.query(qr,(err,result)=>{
+				  
+				  if(err){console.log(err);}
+				  console.log(result,'result')
+				  res.send({
+					  message:'data inserted',
+				  });
+			  });
+	});
+
+	//opdater enkel data
+	app.put('/fact/:id',(req,res)=>{
+		console.log(req.body,'updatedata');
+
+		let getID = req.params.id;
+		let factInfo = req.body.factText;
+
+		let qr = `update fact set factText = '${factInfo}'
+		where factid = '${getID}'`;
+
+		db.query(qr,(err,result)=>{
+			if(err) {console.log(err);}
+			
+			res.send({
+				message:'data updated'
+			});
+		});
+	});
+
+	//slet enkel data
+	app.delete('/fact/:id', (req,res)=>{
+
+		let getID = req.params.id;
+
+		let qr = `delete from fact where factid = '${getID}' `;
+		db.query(qr,(err,result)=>{
+			if(err) {console.log(err);}
+
+			res.send(
+				{
+					message:'data deleted'
+				}
+			)
+		});
+	});
+
 
 app.use(cors());
 app.use(bodyparser.json());
