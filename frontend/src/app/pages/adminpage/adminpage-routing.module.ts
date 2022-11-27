@@ -14,6 +14,9 @@ const routes: Routes = [
     path:'create',component:CreateComponent
   },
   {
+    path:'create/:id',component:CreateComponent
+  },
+  {
     path:'read',component:ReadComponent
   }
 ];

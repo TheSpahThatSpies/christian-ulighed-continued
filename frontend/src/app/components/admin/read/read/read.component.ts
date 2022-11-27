@@ -14,11 +14,7 @@ export class ReadComponent implements OnInit {
   successmsg:any;
 
   ngOnInit() {
-    this.service.getAllData().subscribe((res)=>{
-      console.log(res,"res==>");
-
-      this.readData = res.data;
-    });
+    this.loadData();
   }
 
   deleteID(id:any)
@@ -27,6 +23,17 @@ export class ReadComponent implements OnInit {
     this.service.deleteData(id).subscribe((res)=>{
       console.log(res,'deleteres==>');
       this.successmsg = res.message;
+      this.loadData();
+
+    });
+  }
+
+  loadData()
+  {
+    this.service.getAllData().subscribe((res)=>{
+      console.log(res,"res==>");
+
+      this.readData = res.data;
     });
   }
 

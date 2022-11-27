@@ -42,6 +42,8 @@
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <button class="bg-primary-fw hover:bg-green-900 py-2 px-4 rounded-full text-secondary-fw"
                 (click)="deleteID(us.userid)">Delete</button>
+                <a class="bg-primary-fw hover:bg-green-900 py-2 px-4 rounded-full text-secondary-fw"
+                [routerLink]="['../create',us.userid]">Update</a>
               </td>
             </tr>
           </tbody>
