@@ -24,4 +24,11 @@ export class ApiserviceService {
 
         return this._http.post(`${this.apiUrl}`,data);
       }
+
+      //slet data
+      deleteData(id:any):Observable<any>
+      {
+          let ids = id;
+          return this._http.delete(`${this.apiUrl}/${ids}`);
+      }
 }

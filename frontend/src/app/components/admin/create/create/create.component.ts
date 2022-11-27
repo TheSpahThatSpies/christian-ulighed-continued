@@ -12,6 +12,7 @@ export class CreateComponent implements OnInit {
   constructor(private service:ApiserviceService) { }
 
   errormsg:any;
+  successmsg:any;
 
   ngOnInit(): void {}
 
@@ -25,7 +26,11 @@ export class CreateComponent implements OnInit {
   {
     if (this.userForm.valid)
     {
-      console.log(this.userForm.value);
+      this.service.createData(this.userForm.value).subscribe((res)=>{
+        console.log(res,'res==>');
+        this.userForm.reset();
+        this.successmsg = res.message;
+      });
     }
     else
     {
