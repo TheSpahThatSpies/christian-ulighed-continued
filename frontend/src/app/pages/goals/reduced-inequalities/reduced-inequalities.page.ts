@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiserviceService } from 'src/app/apiservice.service';
 
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
@@ -129,9 +130,22 @@ export class ReducedInequalitiesPage implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private service:ApiserviceService) { }
+
+  readData:any;
 
   ngOnInit() {
+    this.loadFactData();
   }
+
+  loadFactData()
+  {
+    this.service.getAllFactData().subscribe((res)=>{
+      console.log(res,"res==>");
+
+      this.readData = res.data;
+    });
+  }
+
 
 }

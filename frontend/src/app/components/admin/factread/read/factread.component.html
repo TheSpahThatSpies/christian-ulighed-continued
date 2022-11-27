@@ -1,0 +1,42 @@
+<!-- Success -->
+<div *ngIf="successmsg" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-center" role="alert">
+  <strong class="font-bold">{{successmsg}}</strong>
+</div>
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b bg-white">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                ID
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Text
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Edit
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let us of readData' class="bg-white border-b">
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{us.factID}}</td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {{us.factText}}
+              </td>
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <button class="bg-primary-fw hover:bg-green-900 py-2 px-4 rounded-full text-secondary-fw"
+                (click)="deleteFactID(us.factID)">Delete</button>
+                <a class="bg-primary-fw hover:bg-green-900 py-2 px-4 rounded-full text-secondary-fw"
+                [routerLink]="['../factcreate',us.factID]">Update</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

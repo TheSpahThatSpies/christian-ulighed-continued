@@ -13,6 +13,8 @@ import { NavComponent } from 'src/app/components/main/nav/nav.component';
 import { LightNavComponent } from 'src/app/components/main/light-nav/light-nav.component';
 import { CreateComponent } from 'src/app/components/admin/create/create/create.component';
 import { ReadComponent } from 'src/app/components/admin/read/read/read.component';
+import { FactCreateComponent } from 'src/app/components/admin/factcreate/factcreate/factcreate.component';
+import { FactReadComponent } from 'src/app/components/admin/factread/read/factread.component';
 
 @NgModule({
   imports: [
@@ -27,6 +29,8 @@ import { ReadComponent } from 'src/app/components/admin/read/read/read.component
     NavComponent,
     LightNavComponent,
     CreateComponent,
-    ReadComponent]
+    ReadComponent,
+    FactCreateComponent,
+    FactReadComponent]
 })
 export class AdminpagePageModule {}
